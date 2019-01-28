@@ -1,0 +1,29 @@
+*{
+    margin : 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+html{
+     background-color:#EEEEEE;
+}
+
+body{
+    background-color: lightgray;
+    width: 800px;
+    margin:auto;
+    margin-top:10vh;
+    border-radius: 10px; 
+    padding:20px; 
+}
+
+form{
+    margin: 20px;
+}
+
+button{
+    margin:20px;
+}
+
+#correctLetters{
+    margin: 20px;
+}
