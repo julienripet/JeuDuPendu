@@ -40,6 +40,7 @@ if(arrayGuessedLetters[i]== "-"){
     }
     if (fullWordIsCorrect){
         document.getElementById("correctLetters").innerHTML = document.getElementById("correctLetters").innerHTML + "</br>" + "Congratulations! You found the secret word!";
+        document.getElementById("guessedLetter").readOnly = true; 
     }
     return false;
 }
