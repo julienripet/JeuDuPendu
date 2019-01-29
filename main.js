@@ -59,13 +59,8 @@ let TestLetter = () => {
     guessLetter(document.getElementById("guessedLetter").value);
     rememberLetters(document.getElementById("guessedLetter").value);
 
-        document.getElementById("letters").innerHTML = arrayRememberAllLetters.toString();
-        console.log(arrayRememberAllLetters[i]);
-    
-
-        document.getElementById("numberOfGuesses").innerHTML = arrayRememberIterations.toString();
-        console.log(arrayRememberIterations[i]);
-    
+    document.getElementById("letters").innerHTML = arrayRememberAllLetters.toString();
+    document.getElementById("numberOfGuesses").innerHTML = arrayRememberIterations.toString();    
 
     for(i=0;i<arrayGuessedLetters.length;i++){
         if(arrayGuessedLetters[i]== "-"){
