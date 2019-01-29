@@ -22,6 +22,23 @@
 
 let arrayWordToGuess = ['B','O','N','J','O','U','R'];
 let arrayGuessedLetters =['-','-','-','-','-','-','-']; //Always fill this array with "-" to match the lenght needed//
+let arrayRememberAllLetters=[[],[]];
+
+
+let rememberLetters = currentLetter => {
+    let checkRepeats = false;
+    for(i=0;i<arrayRememberAllLetters.length;i++){
+        if(currentLetter == arrayRememberAllLetters[[0],[i]]){
+            checkRepeats = true;
+            arrayRememberAllLetters[[1],[i]]++;
+            break;
+        }
+    }
+    if (!checkRepeats){
+        arrayRememberAllLetters[0].push(currentLetter);
+        arrayRememberAllLetters[[1],[i]] = 1;
+    }
+}
 
 
 let guessLetter = currentLetter => {
@@ -38,6 +55,7 @@ let TestLetter = () => {
 
     document.getElementById("correctLetters").innerHTML = ""
     guessLetter(document.getElementById("guessedLetter").value);
+    rememberLetters(document.getElementById("guessedLetter").value);
 
     for(i=0;i<arrayGuessedLetters.length;i++){
 if(arrayGuessedLetters[i]== "-"){
