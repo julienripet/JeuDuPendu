@@ -22,21 +22,22 @@
 
 let arrayWordToGuess = ['B','O','N','J','O','U','R'];
 let arrayGuessedLetters =['-','-','-','-','-','-','-']; //Always fill this array with "-" to match the lenght needed//
-let arrayRememberAllLetters=[[],[]];
+let arrayRememberAllLetters = ["Lettre : "];
+let arrayRememberIterations = ["Nombre d'itérations"];
 
 
 let rememberLetters = currentLetter => {
     let checkRepeats = false;
-    for(i=0;i<arrayRememberAllLetters.length;i++){
-        if(currentLetter == arrayRememberAllLetters[[0],[i]]){
+    for(i = 0 ; i < arrayRememberAllLetters.length ; i++){
+        if(currentLetter.toUpperCase() == arrayRememberAllLetters[i] && currentLetter != ""){
             checkRepeats = true;
-            arrayRememberAllLetters[[1],[i]]++;
+            arrayRememberIterations[i]++;
             break;
         }
     }
-    if (!checkRepeats){
-        arrayRememberAllLetters[0].push(currentLetter);
-        arrayRememberAllLetters[[1],[i]] = 1;
+    if (!checkRepeats && currentLetter != ""){
+        arrayRememberAllLetters.push(currentLetter.toUpperCase());
+        arrayRememberIterations[i] = 1;
     }
 }
 
@@ -45,7 +46,6 @@ let guessLetter = currentLetter => {
     for( i = 0 ; i < arrayWordToGuess.length ; i++ ){
         if( currentLetter.toUpperCase() == arrayWordToGuess[i] ){
             arrayGuessedLetters[i] = currentLetter.toUpperCase();
-            document.getElementById("guessedLetter").value = "";
         }
     }
 }
@@ -53,20 +53,36 @@ let guessLetter = currentLetter => {
 let TestLetter = () => {
     let fullWordIsCorrect = true;
 
-    document.getElementById("correctLetters").innerHTML = ""
+    document.getElementById("correctLetters").innerHTML = "";
+    document.getElementById("letters").innerHTML = "";
+    document.getElementById("numberOfGuesses").innerHTML = "";
     guessLetter(document.getElementById("guessedLetter").value);
     rememberLetters(document.getElementById("guessedLetter").value);
 
+    for(i = 0; i < arrayRememberAllLetters.length;i++){
+        document.getElementById("letters").innerHTML = arrayRememberAllLetters.toString();
+        console.log(arrayRememberAllLetters[i]);
+
+    }
+
+    for(i = 0; i < arrayRememberIterations.length;i++){
+        document.getElementById("numberOfGuesses").innerHTML = arrayRememberIterations.toString();
+        console.log(arrayRememberIterations[i]);
+    }
+
     for(i=0;i<arrayGuessedLetters.length;i++){
-if(arrayGuessedLetters[i]== "-"){
+        if(arrayGuessedLetters[i]== "-"){
             fullWordIsCorrect = false;
         }
+
         console.log(arrayGuessedLetters[i]);
         document.getElementById("correctLetters").innerHTML = document.getElementById("correctLetters").innerHTML + arrayGuessedLetters[i];
     }
+
     if (fullWordIsCorrect){
         document.getElementById("correctLetters").innerHTML = document.getElementById("correctLetters").innerHTML + "</br>" + "Congratulations! You found the secret word!";
         document.getElementById("guessedLetter").readOnly = true; 
     }
+    document.getElementById("guessedLetter").value="";
     return false;
 }
