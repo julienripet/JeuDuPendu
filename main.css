@@ -27,3 +27,9 @@ button{
 #correctLetters{
     margin: 20px;
 }
+#alreadyGuessedLetters{
+    margin: auto;
+}
+.guessedLetters{
+    margin:10px auto;
+}

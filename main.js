@@ -22,8 +22,8 @@
 
 let arrayWordToGuess = ['B','O','N','J','O','U','R'];
 let arrayGuessedLetters =['-','-','-','-','-','-','-']; //Always fill this array with "-" to match the lenght needed//
-let arrayRememberAllLetters = ["Lettre : "];
-let arrayRememberIterations = ["Nombre d'itérations"];
+let arrayRememberAllLetters = ["Lettres déjà entrées: "];
+let arrayRememberIterations = ["Nombre d'itérations :"];
 
 
 let rememberLetters = currentLetter => {
